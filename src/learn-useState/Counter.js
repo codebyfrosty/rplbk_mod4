@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import logo from "../logo.svg";
 import "./Counter.css";
+
 export default function Counter() {
+    const [inputValue, setInputValue] = useState('')
     const [showImage, setShowImage] = useState(true);
     const [count, setCount] = useState(0);
     const countUp = () => {
@@ -14,10 +16,17 @@ export default function Counter() {
     const hideImage = () => {
         setShowImage(!showImage);
     };
+    const inputHandler = (event) => {
+        setInputValue(event.target.value)
+    }
+
     return (
         <div className="Main">
             <p className="Text">Counter with useState</p>
+            <input type='text' onChange={inputHandler}/>
+            <p>{ inputValue }</p>
             <p>KELOMPOK 4</p>
+            
             <div className="ViewImage">
                 <div className="ViewImage1">
                     <img className="App-logo"
